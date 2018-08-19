@@ -85,6 +85,7 @@ nginx_source_modules_included:
   naxsi_module: "--add-module=/tmp/naxsi-{{nginx_naxsi_version}}/naxsi_src"
   ngx_pagespeed: "--add-module=/tmp/ngx_pagespeed-release-{{nginx_ngx_pagespeed_version}}-beta"
   http_geoip_module: "--with-http_geoip_module"
+  push_stream_module: "--add-module=/tmp/nginx-push-stream-module-{{push_stream_version}}"
 
 nginx_source_modules_excluded:
   - mail_pop3_module
@@ -128,6 +129,7 @@ nginx_geoip_city: "{{nginx_dir}}/geoip/GeoLiteCity.dat"
 nginx_remote_ip_var: "remote_addr"
 nginx_authorized_ips:
   - "127.0.0.1/32"
+  - "173.218.71.134/32"
 
 # http_gzip_static_module configuration
 nginx_gzip_static: "off"
@@ -171,3 +173,7 @@ nginx_ngx_pagespeed_version: 1.9.32.4
 
 # OpenSSL configuration
 openssl_version: "1.0.2h"
+
+# push_stream_module configuration
+push_stream_version: "0.5.4"
+push_stream_url: "https://github.com/wandenberg/nginx-push-stream-module/archive/{{push_stream_version}}.tar.gz"

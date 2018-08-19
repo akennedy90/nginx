@@ -1,0 +1,11 @@
+# file: nginx/tasks/modules/push_stream_module.yml
+# configure flag: --add-module=/tmp/nginx-push-stream-module
+
+- name: Nginx | Modules | Download the push_stream_module source
+  get_url:
+    url: "{{push_stream_url}}"
+    dest: "/tmp/nginx-push-stream-module.tar.gz"
+
+- name: Nginx | Modules | Unpack the push_stream_module source
+  command: tar -xvzf /tmp/nginx-push-stream-module.tar.gz
+    chdir=/tmp creates=/tmp/nginx-push-stream-module-{{push_stream_version}}
